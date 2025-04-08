@@ -218,7 +218,7 @@ public class LoginPage extends javax.swing.JFrame {
         try
         {
             Class.forName("org.sqlite.JDBC");
-            java.sql.Connection con=DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+            java.sql.Connection con=DriverManager.getConnection("dbc:sqlite:Chat.db");
             PreparedStatement ps=con.prepareStatement("select*from Data where UserName=? and Password=?");
             ps.setString(1,u);
             ps.setString(2,p);
