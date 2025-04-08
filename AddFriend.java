@@ -165,7 +165,7 @@ public class AddFriend extends javax.swing.JFrame {
         try
         {
             Class.forName("org.sqlite.JDBC");
-            Connection con=DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+            Connection con=DriverManager.getConnection("dbc:sqlite:Chat.db");
             PreparedStatement ps1=con.prepareStatement("select*from Data Where UserName=?");
             ps1.setString(1,t1.getText());
             ResultSet rs=ps1.executeQuery();
