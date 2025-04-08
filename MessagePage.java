@@ -84,7 +84,7 @@ public class MessagePage extends javax.swing.JFrame {
             String formattedTime = now.format(formatter);
 
             Class.forName("org.sqlite.JDBC");
-            Connection con = DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+            Connection con = DriverManager.getConnection("dbc:sqlite:Chat.db");
             PreparedStatement ps = con.prepareStatement("insert into message (s_username, r_username, message_text, sent_time) values(?, ?, ?, ?)");
             ps.setString(1, sender);
             ps.setString(2, receiver);
@@ -105,7 +105,7 @@ public void checkNewMessages(String myUsername) {
         public void actionPerformed(ActionEvent e) {
             try {
                 Class.forName("org.sqlite.JDBC");
-                Connection con = DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+                Connection con = DriverManager.getConnection("dbc:sqlite:Chat.db");
                 PreparedStatement ps = con.prepareStatement( "SELECT * FROM message WHERE (s_username=? OR s_username=?) AND (r_username=? OR r_username=?) AND id > ? ORDER BY id DESC");
                 ps.setString(1, u); 
                 ps.setString(2, r_u);
@@ -139,7 +139,7 @@ public void checkNewMessages(String myUsername) {
    public void loadMessages(String u,String r_u) {
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection con = DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+            Connection con = DriverManager.getConnection("dbc:sqlite:Chat.db");
             PreparedStatement ps = con.prepareStatement("select * from message where (s_username=? or s_username=?) and (r_username=? or r_username=?) ORDER BY id asc");
             ps.setString(1, u); 
             ps.setString(2, r_u);
