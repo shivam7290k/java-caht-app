@@ -195,7 +195,7 @@ public class V_Rem_MSG extends javax.swing.JFrame {
             String name=dtm.getValueAt(rowno, 1).toString();
            
             Class.forName("org.sqlite.JDBC");
-            Connection con=DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+            Connection con=DriverManager.getConnection("dbc:sqlite:Chat.db");
             PreparedStatement ps3=con.prepareStatement("delete from friend where username2=? and name2=?" );
             ps3.setString(1,username);
             ps3.setString(2,name);
