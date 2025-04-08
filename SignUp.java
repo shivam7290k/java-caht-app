@@ -397,7 +397,7 @@ public class SignUp extends javax.swing.JFrame {
        try
         {
             Class.forName("org.sqlite.JDBC");
-            Connection con=DriverManager.getConnection("jdbc:sqlite:E:\\database\\Chat.db");
+            Connection con=DriverManager.getConnection("dbc:sqlite:Chat.db");
             PreparedStatement ps=con.prepareStatement("insert into Data values(?,?,?,?,?)");
             ps.setString(1,t1.getText());
             ps.setString(2,t2.getText());
